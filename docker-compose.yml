@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  custom-postgres:
+    image: postgres:latest
+    container_name: bank-app
+    ports:
+      - '5430:5432'
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=bankdb
+    volumes:
+      - bank-db:/var/lib/postgresql/data
+
+
+volumes:
+  bank-db:
