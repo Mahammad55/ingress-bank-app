@@ -1,8 +1,12 @@
 package az.ingress.bankapp.service.impl;
 
-import az.ingress.bankapp.service.CardService;
+import az.ingress.bankapp.repository.CardBenefitRepository;
+import az.ingress.bankapp.service.CardBenefitService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CardBenefitServiceImpl implements CardService {
+@RequiredArgsConstructor
+public class CardBenefitServiceImpl implements CardBenefitService {
+    private final CardBenefitRepository cardBenefitRepository;
 }
