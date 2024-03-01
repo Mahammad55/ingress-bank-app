@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-02-16-04-01
+      author: mahammad
+      changes:
+        - createTable:
+            tableName: card_benefits
+            schemaName: bankapp
+            remarks: table to store information about card benefits
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  autoIncrement: true
+              - column:
+                  name: name
+                  type: VARCHAR
+              - column:
+                  name: description
+                  type: VARCHAR
+              - column:
+                  name: card_id
+                  type: BIGINT

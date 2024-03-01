@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-02-16-02-01
+      author: mahammad
+      changes:
+        - createTable:
+            tableName: addresses
+            schemaName: bankapp
+            remarks: table to store information about addresses
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  autoIncrement: true
+              - column:
+                  name: street
+                  type: VARCHAR
+              - column:
+                  name: city
+                  type: VARCHAR
+              - column:
+                  name: postal_code
+                  type: VARCHAR
+              - column:
+                  name: user_id
+                  type: BIGINT

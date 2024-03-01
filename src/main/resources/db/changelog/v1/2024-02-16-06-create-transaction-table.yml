@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-02-16-06-01
+      author: mahammad
+      changes:
+        - createTable:
+            tableName: transactions
+            schemaName: bankapp
+            remarks: table to store information about transactions
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  autoIncrement: true
+              - column:
+                  name: from_account_id
+                  type: BIGINT
+              - column:
+                  name: to_account_id
+                  type: BIGINT
+              - column:
+                  name: amount
+                  type: FLOAT
+              - column:
+                  name: date
+                  type: DATE
+              - column:
+                  name: type
+                  type: VARCHAR

@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-02-16-01-01
+      author: mahammad
+      changes:
+        - createTable:
+            tableName: users
+            schemaName: bankapp
+            remarks: table to store information about users
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  autoIncrement: true
+              - column:
+                  name: username
+                  type: VARCHAR
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: VARCHAR

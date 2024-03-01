@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-02-16-03-01
+      author: mahammad
+      changes:
+        - createTable:
+            tableName: cards
+            schemaName: bankapp
+            remarks: table to store information about cards
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                  autoIncrement: true
+              - column:
+                  name: account_id
+                  type: BIGINT
+              - column:
+                  name: card_number
+                  type: VARCHAR
+              - column:
+                  name: card_name
+                  type: VARCHAR
+              - column:
+                  name: expiration_date
+                  type: VARCHAR

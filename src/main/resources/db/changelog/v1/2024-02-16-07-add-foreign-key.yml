@@ -1,0 +1,78 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-02-16-07-01
+      author: mahammad
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: addresses
+            baseColumnNames: user_id
+            constraintName: fk_user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+
+  - changeSet:
+      id: 2024-02-16-07-02
+      author: mahammad
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: cards
+            baseColumnNames: account_id
+            constraintName: fk_account_id
+            referencedTableName: accounts
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+
+  - changeSet:
+      id: 2024-02-16-07-03
+      author: mahammad
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: card_benefits
+            baseColumnNames: card_id
+            constraintName: fk_card_id
+            referencedTableName: cards
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+
+  - changeSet:
+      id: 2024-02-16-07-04
+      author: mahammad
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: accounts
+            baseColumnNames: user_id
+            constraintName: fk_user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+
+  - changeSet:
+      id: 2024-02-16-07-05
+      author: mahammad
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: transactions
+            baseColumnNames: from_account_id
+            constraintName: fk_from_account_id
+            referencedTableName: accounts
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+
+  - changeSet:
+      id: 2024-02-16-07-06
+      author: mahammad
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: transactions
+            baseColumnNames: to_account_id
+            constraintName: fk_to_account_id
+            referencedTableName: accounts
+            referencedColumnNames: id
+            onDelete: CASCADE
+            onUpdate: RESTRICT
