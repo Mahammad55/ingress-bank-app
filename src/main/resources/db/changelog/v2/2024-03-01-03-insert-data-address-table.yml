@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-03-01-03-01
+      author: mahammad
+      changes:
+        - sql: INSERT INTO addresses(city, postal_code, street, user_id) VALUES('New York', '10001', 'Broadway', 1);
+        - sql: INSERT INTO addresses(city, postal_code, street, user_id) VALUES('Los Angeles', '90001', 'Hollywood Blvd', 2);
+        - sql: INSERT INTO addresses(city, postal_code, street, user_id) VALUES('Chicago', '60601', 'Michigan Ave', 3);
+        - sql: INSERT INTO addresses(city, postal_code, street, user_id) VALUES('Houston', '77001', 'Main St', 4);
+        - sql: INSERT INTO addresses(city, postal_code, street, user_id) VALUES('Phoenix', '85001', 'Camelback Rd', 5);
+        - sql: INSERT INTO addresses(city, postal_code, street, user_id) VALUES('Philadelphia', '19019', 'Market St', 6);
+        - sql: INSERT INTO addresses(city, postal_code, street, user_id) VALUES('San Antonio', '78201', 'River Walk', 7);
+        - sql: INSERT INTO addresses(city, postal_code, street, user_id) VALUES('San Diego', '92101', 'Gaslamp Quarter', 8);
+        - sql: INSERT INTO addresses(city, postal_code, street, user_id) VALUES('Dallas', '75201', 'Main St', 9);
+        - sql: INSERT INTO addresses(city, postal_code, street, user_id) VALUES('San Jose', '95101', 'First St', 10);

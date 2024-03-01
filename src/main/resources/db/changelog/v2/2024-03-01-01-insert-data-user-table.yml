@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-03-01-01-01
+      author: mahammad
+      changes:
+        - sql: INSERT INTO users(username,password) VALUES('john', 'password1');
+        - sql: INSERT INTO users(username,password) VALUES('jane', 'password2');
+        - sql: INSERT INTO users(username,password) VALUES('alice', 'password3');
+        - sql: INSERT INTO users(username,password) VALUES('bob', 'password4');
+        - sql: INSERT INTO users(username,password) VALUES('carol', 'password5');
+        - sql: INSERT INTO users(username,password) VALUES('dave', 'password6');
+        - sql: INSERT INTO users(username,password) VALUES('emily', 'password7');
+        - sql: INSERT INTO users(username,password) VALUES('frank', 'password8');
+        - sql: INSERT INTO users(username,password) VALUES('grace', 'password9');
+        - sql: INSERT INTO users(username,password) VALUES('henry', 'password10');

@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-03-01-05-01
+      author: mahammad
+      changes:
+        - sql: INSERT INTO card_benefits(description, name, card_id) VALUES('Cashback rewards', 'Visa', 1);
+        - sql: INSERT INTO card_benefits(description, name, card_id) VALUES('Travel insurance', 'Mastercard', 2);
+        - sql: INSERT INTO card_benefits(description, name, card_id) VALUES('Purchase protection', 'American Express', 3);
+        - sql: INSERT INTO card_benefits(description, name, card_id) VALUES('Extended warranty', 'Discover', 4);
+        - sql: INSERT INTO card_benefits(description, name, card_id) VALUES('Airport lounge access', 'JCB', 5);
+        - sql: INSERT INTO card_benefits(description, name, card_id) VALUES('Concierge service', 'Diners Club', 6);
+        - sql: INSERT INTO card_benefits(description, name, card_id) VALUES('Emergency assistance', 'UnionPay', 7);
+        - sql: INSERT INTO card_benefits(description, name, card_id) VALUES('Price protection', 'Maestro', 8);
+        - sql: INSERT INTO card_benefits(description, name, card_id) VALUES('Fraud protection', 'Visa Electron', 9);
+        - sql: INSERT INTO card_benefits(description, name, card_id) VALUES('Identity theft protection', 'InterPayment', 10);

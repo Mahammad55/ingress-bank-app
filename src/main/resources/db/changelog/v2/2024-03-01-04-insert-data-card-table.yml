@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-03-01-04-01
+      author: mahammad
+      changes:
+        - sql: INSERT INTO cards(card_name, card_number, expiration_date, account_id) VALUES('Visa', '4111111111111111', '2024-12-31', 1);
+        - sql: INSERT INTO cards(card_name, card_number, expiration_date, account_id) VALUES('Mastercard', '5555555555554444', '2025-06-30', 2);
+        - sql: INSERT INTO cards(card_name, card_number, expiration_date, account_id) VALUES('American Express', '378282246310005', '2026-03-31', 3);
+        - sql: INSERT INTO cards(card_name, card_number, expiration_date, account_id) VALUES('Discover', '6011111111111117', '2023-10-31', 4);
+        - sql: INSERT INTO cards(card_name, card_number, expiration_date, account_id) VALUES('JCB', '3530111333300000', '2024-09-30', 5);
+        - sql: INSERT INTO cards(card_name, card_number, expiration_date, account_id) VALUES('Diners Club', '30569309025904', '2025-12-31', 6);
+        - sql: INSERT INTO cards(card_name, card_number, expiration_date, account_id) VALUES('UnionPay', '6221260000000000', '2026-06-30', 7);
+        - sql: INSERT INTO cards(card_name, card_number, expiration_date, account_id) VALUES('Maestro', '6759649826438453', '2024-02-29', 8);
+        - sql: INSERT INTO cards(card_name, card_number, expiration_date, account_id) VALUES('Visa Electron', '4917300800000000', '2025-11-30', 9);
+        - sql: INSERT INTO cards(card_name, card_number, expiration_date, account_id) VALUES('InterPayment', '6362970000457013', '2023-08-31', 10);
