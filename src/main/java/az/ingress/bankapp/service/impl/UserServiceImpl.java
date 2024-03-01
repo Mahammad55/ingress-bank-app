@@ -25,4 +25,14 @@ public class UserServiceImpl implements UserService {
                 .map(userMapper::entityToResponse)
                 .toList();
     }
+
+    @Override
+    public List<UserResponse> getAllUsersByUsername(String username) {
+        return userRepository
+                .getAllUsersByUsername(username)
+                .get()
+                .stream()
+                .map(userMapper::entityToResponse)
+                .toList();
+    }
 }
