@@ -36,5 +36,5 @@ public class Transaction {
 
     private LocalDate date;
 
-    private String type; // Exp: "transfer", "withdraw", "deposit"
+    private String type;
 }

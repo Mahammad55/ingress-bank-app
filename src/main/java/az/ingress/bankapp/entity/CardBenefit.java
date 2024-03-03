@@ -1,5 +1,6 @@
 package az.ingress.bankapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +29,6 @@ public class CardBenefit {
 
     @ManyToOne
     @ToString.Exclude
-    @EqualsAndHashCode.Exclude
+    @JsonIgnore
     private Card card;
 }

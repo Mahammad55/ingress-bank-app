@@ -2,4 +2,3 @@ server:
   port: 9095
   servlet:
     context-path: /bank-app
-
