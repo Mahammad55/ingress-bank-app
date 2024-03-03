@@ -1,18 +1,7 @@
 package az.ingress.bankapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.NamedQuery;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
@@ -23,6 +12,19 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@NamedEntityGraph(
+        name = "account-user-cards",
+        attributeNodes = {
+                @NamedAttributeNode("user"),
+                @NamedAttributeNode(value = "cards", subgraph = "cardBenefitsSubGraph")
+        },
+        subgraphs = {
+                @NamedSubgraph(
+                        name = "cardBenefitsSubGraph",
+                        attributeNodes = @NamedAttributeNode("cardBenefits")
+                )
+        }
+)
 @NamedQuery(
         name = "getAllAccounts",
         query = "select a from Account a join fetch a.user u join fetch a.cards c join fetch c.cardBenefits b"

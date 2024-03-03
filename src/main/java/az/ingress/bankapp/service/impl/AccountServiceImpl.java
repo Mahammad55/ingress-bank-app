@@ -6,6 +6,7 @@ import az.ingress.bankapp.exception.NotFoundException;
 import az.ingress.bankapp.mapper.AccountMapper;
 import az.ingress.bankapp.repository.AccountRepository;
 import az.ingress.bankapp.service.AccountService;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +34,10 @@ public class AccountServiceImpl implements AccountService {
         return accountRepository
                 .findAllByNamedQuery()
                 .get();
+    }
+
+    @PostConstruct
+    public void test() {
+        accountRepository.findAllAccountsByCustomGraph().get().forEach(System.out::println);
     }
 }
