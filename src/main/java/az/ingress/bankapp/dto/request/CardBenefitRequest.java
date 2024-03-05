@@ -10,11 +10,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CardBenefitRequest {
-    private Long id;
-
     private String name;
 
     private String description;
 
-    private CardRequest card;
+    private Long cardId;
 }

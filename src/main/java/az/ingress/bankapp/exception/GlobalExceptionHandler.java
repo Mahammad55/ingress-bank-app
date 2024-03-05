@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
 
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.http.HttpStatus.*;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -25,14 +24,25 @@ public class GlobalExceptionHandler {
                 .build();
     }
 
-//    @ExceptionHandler(Exception.class)
-//    @ResponseStatus(INTERNAL_SERVER_ERROR)
-//    public ErrorResponse exceptionHandler(Exception exception, HttpServletRequest request) {
-//        return ErrorResponse.builder()
-//                .timestamp(LocalDateTime.now())
-//                .status(INTERNAL_SERVER_ERROR.value())
-//                .message(exception.getMessage())
-//                .path(request.getContextPath() + request.getServletPath())
-//                .build();
-//    }
+    @ExceptionHandler(AlreadyExistException.class)
+    @ResponseStatus(CONFLICT)
+    public ErrorResponse alreadyExistExceptionHandler(AlreadyExistException exception, HttpServletRequest request) {
+        return ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(CONFLICT.value())
+                .message(exception.getMessage())
+                .path(request.getContextPath() + request.getServletPath())
+                .build();
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(INTERNAL_SERVER_ERROR)
+    public ErrorResponse exceptionHandler(Exception exception, HttpServletRequest request) {
+        return ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .status(INTERNAL_SERVER_ERROR.value())
+                .message(exception.getMessage())
+                .path(request.getContextPath() + request.getServletPath())
+                .build();
+    }
 }

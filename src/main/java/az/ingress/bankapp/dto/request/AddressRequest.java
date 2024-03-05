@@ -16,5 +16,5 @@ public class AddressRequest {
 
     private String postalCode;
 
-    private UserRequest user;
+    private Long userId;
 }

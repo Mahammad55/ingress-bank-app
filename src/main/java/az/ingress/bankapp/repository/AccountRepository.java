@@ -17,4 +17,6 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
     @EntityGraph(value = "account-user-cards", type = EntityGraph.EntityGraphType.LOAD)
     @Query("select a from Account a")
     Optional<List<Account>> findAllAccountsByCustomGraph();
+
+    Boolean existsAccountByAccountNumber(String accountNumber);
 }

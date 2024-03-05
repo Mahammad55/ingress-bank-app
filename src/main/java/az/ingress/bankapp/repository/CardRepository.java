@@ -14,4 +14,6 @@ public interface CardRepository extends JpaRepository<Card, Long> {
     @EntityGraph(attributePaths = {"cardBenefits"})
     @Query("select c from Card c")
     Optional<List<Card>> findAllCards();
+
+    Boolean existsCardByCardNumber(String cardNumber);
 }

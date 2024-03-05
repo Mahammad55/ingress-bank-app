@@ -18,7 +18,7 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<UserResponse>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
@@ -29,11 +29,11 @@ public class UserController {
     }
 
     @GetMapping("/id/{id}")
-    public ResponseEntity<UserResponse> getUserById(@PathVariable("id") Long userId) {
-        return ResponseEntity.ok(userService.getUserById(userId));
+    public ResponseEntity<UserResponse> getUserById(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.getUserById(id));
     }
 
-    @PostMapping
+    @PostMapping("/")
     @ResponseStatus(CREATED)
     public void saveUser(@RequestBody UserRequest userRequest) {
         userService.saveUser(userRequest);
@@ -41,14 +41,13 @@ public class UserController {
 
     @PutMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
-    public void updateUser(@PathVariable("id") Long userId,
-                           @RequestBody UserRequest userRequest) {
-        userService.updateStudent(userId, userRequest);
+    public void updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
+        userService.updateUser(id, userRequest);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
-    public void deleteUser(@PathVariable("id") Long userId) {
-        userService.deleteUser(userId);
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
     }
 }

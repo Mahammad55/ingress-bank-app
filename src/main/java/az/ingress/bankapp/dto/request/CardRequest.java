@@ -10,9 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CardRequest {
-    private Long id;
-
-    private AccountRequest account;
+    private Long accountId;
 
     private String cardNumber;
 

@@ -24,16 +24,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserResponse> getAllUsers() {
-        List<UserResponse> list = userRepository
+        List<UserResponse> userResponseList = userRepository
                 .findAll()
                 .stream()
                 .map(userMapper::entityToResponse)
                 .toList();
 
-        if (list.isEmpty()) {
+        if (userResponseList.isEmpty()) {
             throw new NotFoundException(USER_NOT_FOUND.getMessage());
         }
-        return list;
+        return userResponseList;
     }
 
     @Override
@@ -66,13 +66,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateStudent(Long id, UserRequest userRequest) {
-        User user = userRepository
+    public void updateUser(Long id, UserRequest userRequest) {
+        userRepository
                 .findUserById(id)
                 .orElseThrow(() -> new NotFoundException(USER_NOT_FOUND.getMessage().formatted(id)));
 
-        user.setUsername(userRequest.getUsername());
-        user.setPassword(userRequest.getPassword());
+        User user = userMapper.requestToEntity(userRequest);
+        user.setId(id);
         userRepository.save(user);
     }
 
@@ -81,6 +81,7 @@ public class UserServiceImpl implements UserService {
         userRepository
                 .findUserById(id)
                 .orElseThrow(() -> new NotFoundException(USER_NOT_FOUND.getMessage().formatted(id)));
+
         userRepository.deleteById(id);
     }
 }

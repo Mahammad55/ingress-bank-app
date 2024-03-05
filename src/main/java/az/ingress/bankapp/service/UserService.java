@@ -6,15 +6,15 @@ import az.ingress.bankapp.dto.response.UserResponse;
 import java.util.List;
 
 public interface UserService {
+    UserResponse getUserById(Long id);
+
     List<UserResponse> getAllUsers();
 
     List<UserResponse> getAllUsersByUsername(String username);
 
-    UserResponse getUserById(Long id);
-
     void saveUser(UserRequest userRequest);
 
-    void updateStudent(Long id, UserRequest userRequest);
+    void updateUser(Long id, UserRequest userRequest);
 
     void deleteUser(Long id);
 }

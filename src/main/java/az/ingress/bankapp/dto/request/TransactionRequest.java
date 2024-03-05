@@ -12,9 +12,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransactionRequest {
-    private AccountRequest fromAccount;
+    private Long fromAccountId;
 
-    private AccountRequest toAccount;
+    private Long toAccountId;
 
     private double amount;
 
