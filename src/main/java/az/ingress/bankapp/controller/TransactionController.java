@@ -25,7 +25,7 @@ public class TransactionController {
 
     @GetMapping("/")
     public ResponseEntity<List<TransactionResponse>> getAllTransaction() {
-        return ResponseEntity.ok(transactionService.getAllTransactions());
+        return ResponseEntity.ok(transactionService.getAllTransaction());
     }
 
     @PostMapping("/")

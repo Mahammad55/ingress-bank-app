@@ -58,8 +58,8 @@ public class AccountController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<AccountResponse>> getAllAccounts() {
-        return ResponseEntity.ok(accountService.getAllAccounts());
+    public ResponseEntity<List<AccountResponse>> getAllAccount() {
+        return ResponseEntity.ok(accountService.getAllAccount());
     }
 
     @PostMapping("/")

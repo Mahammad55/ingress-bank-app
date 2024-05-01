@@ -8,7 +8,7 @@ import java.util.List;
 public interface AddressService {
     AddressResponse getAddressById(Long id);
 
-    List<AddressResponse> getAllAddresses();
+    List<AddressResponse> getAllAddress();
 
     void saveAddress(AddressRequest addressRequest);
 

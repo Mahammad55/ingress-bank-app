@@ -4,8 +4,9 @@ import az.ingress.bankapp.dto.request.AddressRequest;
 import az.ingress.bankapp.dto.response.AddressResponse;
 import az.ingress.bankapp.entity.Address;
 import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface AddressMapper {
     AddressResponse entityToResponse(Address address);
 

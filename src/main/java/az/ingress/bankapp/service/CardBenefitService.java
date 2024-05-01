@@ -8,7 +8,7 @@ import java.util.List;
 public interface CardBenefitService  {
     CardBenefitResponse getCardBenefitById(Long id);
 
-    List<CardBenefitResponse> getAllCardBenefits();
+    List<CardBenefitResponse> getAllCardBenefit();
 
     void saveCardBenefit(CardBenefitRequest cardBenefitRequest);
 

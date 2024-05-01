@@ -21,8 +21,8 @@ public class CardBenefitController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<CardBenefitResponse>> getAllCardBenefits() {
-        return ResponseEntity.ok(cardBenefitService.getAllCardBenefits());
+    public ResponseEntity<List<CardBenefitResponse>> getAllCardBenefit() {
+        return ResponseEntity.ok(cardBenefitService.getAllCardBenefit());
     }
 
     @PostMapping("/")

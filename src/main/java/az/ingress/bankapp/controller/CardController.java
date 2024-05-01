@@ -24,8 +24,8 @@ public class CardController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<CardResponse>> getAllCards() {
-        return ResponseEntity.ok(cardService.getAllCards());
+    public ResponseEntity<List<CardResponse>> getAllCard() {
+        return ResponseEntity.ok(cardService.getAllCard());
     }
 
     @PostMapping("/")

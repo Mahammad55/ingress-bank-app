@@ -8,9 +8,9 @@ import java.util.List;
 public interface UserService {
     UserResponse getUserById(Long id);
 
-    List<UserResponse> getAllUsers();
+    List<UserResponse> getAllUser();
 
-    List<UserResponse> getAllUsersByUsername(String username);
+    List<UserResponse> getAllUserByUsername(String username);
 
     void saveUser(UserRequest userRequest);
 

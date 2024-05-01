@@ -8,7 +8,7 @@ import java.util.List;
 public interface CardService {
     CardResponse getCardById(Long id);
 
-    List<CardResponse> getAllCards();
+    List<CardResponse> getAllCard();
 
     void saveCard(CardRequest CardRequest);
 

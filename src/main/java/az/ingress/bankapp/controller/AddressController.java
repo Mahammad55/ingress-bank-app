@@ -24,8 +24,8 @@ public class AddressController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<AddressResponse>> getAllAddresses() {
-        return ResponseEntity.ok(addressService.getAllAddresses());
+    public ResponseEntity<List<AddressResponse>> getAllAddress() {
+        return ResponseEntity.ok(addressService.getAllAddress());
     }
 
     @PostMapping("/")

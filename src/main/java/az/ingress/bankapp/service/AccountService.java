@@ -2,14 +2,13 @@ package az.ingress.bankapp.service;
 
 import az.ingress.bankapp.dto.request.AccountRequest;
 import az.ingress.bankapp.dto.response.AccountResponse;
-import az.ingress.bankapp.entity.Account;
 
 import java.util.List;
 
 public interface AccountService {
     AccountResponse getAccountById(Long id);
 
-    List<AccountResponse> getAllAccounts();
+    List<AccountResponse> getAllAccount();
 
     void saveAccount(AccountRequest accountRequest);
 
