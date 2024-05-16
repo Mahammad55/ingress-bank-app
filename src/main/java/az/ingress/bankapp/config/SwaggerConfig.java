@@ -7,7 +7,8 @@ import io.swagger.v3.oas.annotations.info.Info;
 @OpenAPIDefinition(info = @Info(
         title = "Bank Application API",
         description = "API for customers' bank operations",
-        version = "1.0",
+        version = "v1.0",
+        termsOfService = "Term of service (in url format)",
         contact = @Contact(
                 name = "Mahammad Ilyazov",
                 email = "ilyazovmehemmed@gmail.com",

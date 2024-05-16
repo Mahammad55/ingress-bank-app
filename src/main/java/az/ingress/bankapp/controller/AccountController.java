@@ -50,9 +50,11 @@ public class AccountController {
     @GetMapping("/{id}")
     public ResponseEntity<AccountResponse> getAccountById(
             @Parameter(
+                    name = "id",
                     description = "Id of account to be retrieved",
-                    required = true,
-                    example = "1")
+                    example = "1",
+                    required = true
+            )
             @PathVariable("id") Long accountId) {
         return ResponseEntity.ok(accountService.getAccountById(accountId));
     }

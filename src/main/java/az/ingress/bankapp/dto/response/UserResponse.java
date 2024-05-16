@@ -11,12 +11,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserResponse {
-    @Schema(type = "Long", example = "1")
+    @Schema(name = "id", type = "Long", example = "1", description = "Id of User", hidden = true)
     private Long id;
 
-    @Schema(type = "String", example = "john")
+    @Schema(name = "username", type = "String", example = "john", description = "Username of User")
     private String username;
 
-    @Schema(type = "String", example = "password123")
+    @Schema(name = "password", type = "String", example = "password123", description = "Password of User")
     private String password;
 }
