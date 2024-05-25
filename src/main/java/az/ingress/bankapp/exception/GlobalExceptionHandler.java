@@ -7,17 +7,20 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-import static org.springframework.http.HttpStatus.*;
+import static org.springframework.http.HttpStatus.CONFLICT;
+import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @RestControllerAdvice
-public class  GlobalExceptionHandler {
+public class GlobalExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(NOT_FOUND)
     public ErrorResponse notFoundExceptionHandler(NotFoundException exception, HttpServletRequest request) {
         return ErrorResponse.builder()
-                .timestamp(LocalDateTime.now())
+                .timestamp(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MMMM-dd HH:mm:ss")))
                 .status(NOT_FOUND.value())
                 .message(exception.getMessage())
                 .path(request.getContextPath() + request.getServletPath())
@@ -28,10 +31,10 @@ public class  GlobalExceptionHandler {
     @ResponseStatus(CONFLICT)
     public ErrorResponse alreadyExistExceptionHandler(AlreadyExistException exception, HttpServletRequest request) {
         return ErrorResponse.builder()
-                .timestamp(LocalDateTime.now())
+                .timestamp(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MMMM-dd HH:mm:ss")))
                 .status(CONFLICT.value())
                 .message(exception.getMessage())
-                .path(request.getContextPath() + request.getServletPath())
+                .path(request.getRequestURI())
                 .build();
     }
 
@@ -39,7 +42,7 @@ public class  GlobalExceptionHandler {
     @ResponseStatus(INTERNAL_SERVER_ERROR)
     public ErrorResponse exceptionHandler(Exception exception, HttpServletRequest request) {
         return ErrorResponse.builder()
-                .timestamp(LocalDateTime.now())
+                .timestamp(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MMMM-dd HH:mm:ss")))
                 .status(INTERNAL_SERVER_ERROR.value())
                 .message(exception.getMessage())
                 .path(request.getContextPath() + request.getServletPath())

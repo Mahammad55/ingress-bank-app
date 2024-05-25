@@ -1,0 +1,8 @@
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+jwt:
+  secret-key: ${SECRET_KEY:bXMyMiBqd3Qgc2FsYW0gbmVjZXNlbiBuZSB2YXIgbmUgeW94IGtlZiBoYWw}

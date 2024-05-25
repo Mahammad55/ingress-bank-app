@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-02-05-02-01
+      author: mahammad
+      changes:
+        - createTable:
+            tableName: user_authorities
+            remarks: table to store information about user_authorities
+            columns:
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_user_id
+                    references: users(id)
+              - column:
+                  name: authority_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_authority_id
+                    references: authorities(id)
