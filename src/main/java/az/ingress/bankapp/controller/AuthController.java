@@ -4,6 +4,7 @@ import az.ingress.bankapp.config.JwtService;
 import az.ingress.bankapp.dto.request.AuthRequest;
 import az.ingress.bankapp.dto.response.AuthResponse;
 import az.ingress.bankapp.service.impl.MyUserDetails;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,7 +23,7 @@ public class AuthController {
     private final JwtService jwtService;
 
     @PostMapping("/login")
-    public AuthResponse login(@RequestBody AuthRequest authRequest) {
+    public AuthResponse login(@Valid @RequestBody AuthRequest authRequest) {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
         MyUserDetails user = (MyUserDetails) authenticate.getPrincipal();
         String accessToken = jwtService.generateAccessToken(user);

@@ -3,6 +3,7 @@ package az.ingress.bankapp.controller;
 import az.ingress.bankapp.dto.request.AddressRequest;
 import az.ingress.bankapp.dto.response.AddressResponse;
 import az.ingress.bankapp.service.AddressService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,13 +31,13 @@ public class AddressController {
 
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveAddress(@RequestBody AddressRequest addressRequest) {
+    public void saveAddress(@Valid @RequestBody AddressRequest addressRequest) {
         addressService.saveAddress(addressRequest);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
-    public void updateAddress(@PathVariable Long id, @RequestBody AddressRequest addressRequest) {
+    public void updateAddress(@PathVariable Long id,@Valid @RequestBody AddressRequest addressRequest) {
         addressService.updateAddress(id, addressRequest);
     }
 

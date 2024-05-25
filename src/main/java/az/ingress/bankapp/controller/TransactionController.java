@@ -3,6 +3,7 @@ package az.ingress.bankapp.controller;
 import az.ingress.bankapp.dto.request.TransactionRequest;
 import az.ingress.bankapp.dto.response.TransactionResponse;
 import az.ingress.bankapp.service.TransactionService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,13 +31,13 @@ public class TransactionController {
 
     @PostMapping("/")
     @ResponseStatus(CREATED)
-    public void saveTransaction(@RequestBody TransactionRequest transactionRequest) {
+    public void saveTransaction(@Valid @RequestBody TransactionRequest transactionRequest) {
         transactionService.saveTransaction(transactionRequest);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
-    public void updateTransaction(@PathVariable Long id, @RequestBody TransactionRequest transactionRequest) {
+    public void updateTransaction(@PathVariable Long id, @Valid @RequestBody TransactionRequest transactionRequest) {
         transactionService.updateTransaction(id, transactionRequest);
     }
 

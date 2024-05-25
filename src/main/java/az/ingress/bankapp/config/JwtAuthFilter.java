@@ -27,20 +27,20 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String token = request.getHeader(AUTHORIZATION);
-        try {
-            String tokenWithoutBearer = removeBearer(token);
-
-            Date date = jwtService.extractClaims(tokenWithoutBearer, Claims::getExpiration);
-            if (date.before(new Date())) return;
-
-            String username = jwtService.extractClaims(tokenWithoutBearer, Claims::getSubject);
-            Authentication authentication = jwtService.getAuthentication(username);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        } catch (Exception exception) {
-            response.setStatus(HttpServletResponse.SC_EXPECTATION_FAILED);
-            return;
-        }
+//        String token = request.getHeader(AUTHORIZATION);
+//        try {
+//            String tokenWithoutBearer = removeBearer(token);
+//
+//            Date date = jwtService.extractClaims(tokenWithoutBearer, Claims::getExpiration);
+//            if (date.before(new Date())) return;
+//
+//            String username = jwtService.extractClaims(tokenWithoutBearer, Claims::getSubject);
+//            Authentication authentication = jwtService.getAuthentication(username);
+//            SecurityContextHolder.getContext().setAuthentication(authentication);
+//        } catch (Exception exception) {
+//            response.setStatus(HttpServletResponse.SC_EXPECTATION_FAILED);
+//            return;
+//        }
 
         filterChain.doFilter(request, response);
     }
@@ -49,6 +49,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         if (token != null && token.startsWith(BEARER_)) {
             return token.split("\\s")[1].trim();
         }
-        throw new RuntimeException("This is nor BEARER token");
+        throw new RuntimeException("This is not BEARER token");
     }
 }

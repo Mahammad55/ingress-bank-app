@@ -3,6 +3,7 @@ package az.ingress.bankapp.controller;
 import az.ingress.bankapp.dto.request.UserRequest;
 import az.ingress.bankapp.dto.response.UserResponse;
 import az.ingress.bankapp.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,13 +36,13 @@ public class UserController {
 
     @PostMapping("/")
     @ResponseStatus(CREATED)
-    public void saveUser(@RequestBody UserRequest userRequest) {
+    public void saveUser(@Valid @RequestBody UserRequest userRequest) {
         userService.saveUser(userRequest);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
-    public void updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
+    public void updateUser(@PathVariable Long id,@Valid @RequestBody UserRequest userRequest) {
         userService.updateUser(id, userRequest);
     }
 

@@ -3,6 +3,7 @@ package az.ingress.bankapp.controller;
 import az.ingress.bankapp.dto.request.CardRequest;
 import az.ingress.bankapp.dto.response.CardResponse;
 import az.ingress.bankapp.service.CardService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,13 +31,13 @@ public class CardController {
 
     @PostMapping("/")
     @ResponseStatus(CREATED)
-    public void saveCard(@RequestBody CardRequest cardRequest) {
+    public void saveCard(@Valid @RequestBody CardRequest cardRequest) {
         cardService.saveCard(cardRequest);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
-    public void updateCard(@PathVariable Long id, @RequestBody CardRequest cardRequest) {
+    public void updateCard(@PathVariable Long id, @Valid @RequestBody CardRequest cardRequest) {
         cardService.updateCard(id, cardRequest);
     }
 

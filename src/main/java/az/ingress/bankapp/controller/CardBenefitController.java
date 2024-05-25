@@ -3,6 +3,7 @@ package az.ingress.bankapp.controller;
 import az.ingress.bankapp.dto.request.CardBenefitRequest;
 import az.ingress.bankapp.dto.response.CardBenefitResponse;
 import az.ingress.bankapp.service.CardBenefitService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,12 +27,12 @@ public class CardBenefitController {
     }
 
     @PostMapping("/")
-    public void saveCardBenefit(@RequestBody CardBenefitRequest cardBenefitRequest) {
+    public void saveCardBenefit(@Valid @RequestBody CardBenefitRequest cardBenefitRequest) {
         cardBenefitService.saveCardBenefit(cardBenefitRequest);
     }
 
     @PutMapping("/{id}")
-    public void updateCardBenefit(@PathVariable Long id, @RequestBody CardBenefitRequest cardBenefitRequest) {
+    public void updateCardBenefit(@PathVariable Long id, @Valid @RequestBody CardBenefitRequest cardBenefitRequest) {
         cardBenefitService.updateCardBenefit(id, cardBenefitRequest);
     }
 

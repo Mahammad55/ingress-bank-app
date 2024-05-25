@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -66,13 +67,13 @@ public class AccountController {
 
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
-    public void saveAccount(@RequestBody AccountRequest accountRequest) {
+    public void saveAccount(@Valid @RequestBody AccountRequest accountRequest) {
         accountService.saveAccount(accountRequest);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
-    public void updateAccount(@PathVariable Long id, @RequestBody AccountRequest accountRequest) {
+    public void updateAccount(@PathVariable Long id, @Valid @RequestBody AccountRequest accountRequest) {
         accountService.updateAccount(id, accountRequest);
     }
 

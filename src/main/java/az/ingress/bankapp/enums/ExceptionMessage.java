@@ -20,7 +20,9 @@ public enum ExceptionMessage {
 
     ADDRESS_NOT_FOUND("Address by parameter=%s not found"),
 
-    TRANSACTION_NOT_FOUND("Transaction by parameter=%s not found");
+    TRANSACTION_NOT_FOUND("Transaction by parameter=%s not found"),
+
+    VALIDATION_EXCEPTION("Validation exception");
 
     private final String message;
 }
